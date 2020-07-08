@@ -3,15 +3,15 @@ import 'firebase/firestore'
 import 'firebase/auth'
 
 const config = {
-  apiKey: 'AIzaSyBpEGYRdZh1pB94muf31W6Ep2Fbp66Astc',
-  authDomain: 'crwn-db-udemy666.firebaseapp.com',
-  databaseURL: 'https://crwn-db-udemy666.firebaseio.com',
-  projectId: 'crwn-db-udemy666',
-  storageBucket: 'crwn-db-udemy666.appspot.com',
-  messagingSenderId: '439666116989',
-  appId: '1:439666116989:web:5334c06b7644d2011a6414',
-  measurementId: 'G-4PN7MF835N',
-}
+  apiKey: "AIzaSyBpEGYRdZh1pB94muf31W6Ep2Fbp66Astc",
+  authDomain: "crwn-db-udemy666.firebaseapp.com",
+  databaseURL: "https://crwn-db-udemy666.firebaseio.com",
+  projectId: "crwn-db-udemy666",
+  storageBucket: "crwn-db-udemy666.appspot.com",
+  messagingSenderId: "439666116989",
+  appId: "1:439666116989:web:5334c06b7644d2011a6414",
+  measurementId: "G-4PN7MF835N"
+};
 
 export const createUserProfileDocument = async (userAuth, additionalData) => {
   if (!userAuth) return
@@ -23,6 +23,7 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
   if (!snapShot.exists) {
     const { displayName, email } = userAuth
     const createdAt = new Date()
+
     try {
       await userRef.set({
         displayName,
@@ -31,7 +32,7 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
         ...additionalData,
       })
     } catch (error) {
-      console.log('error creating user', error.message)
+      console.log('errpr creating user', error.message)
     }
   }
 
